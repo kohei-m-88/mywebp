@@ -1,14 +1,16 @@
-import { Header } from "../components/header";
+import { Header } from "../../components/header";
+import { PreviewMode } from "../../components/previewMode"
 import { BlogPost } from "../components/blogPost";
 import { Footer } from "../components/footer";
 import { getAllBlogPosts } from "../lib/api";
 // import styles from "../styles/Home.module.css";
 
-const Index = ({ allPosts }) => {
+const Index = ({ allPosts, preview }) => {
   return (
     <>
       <Header />
-
+      {preview && <PreviewMode />}
+      
       <p>Latest</p>
 
       {allPosts.map((post) => {
@@ -29,10 +31,13 @@ const Index = ({ allPosts }) => {
   );
 };
 
-export async function getStaticProps() {
-  const allPosts = await getAllBlogPosts();
+export async function getStaticProps({ preview = false, previewData }) {
+  const allPosts = await getAllBlogPosts(previewData);
   return {
-    props: { allPosts },
+    props: { 
+      preview,
+      allPosts
+    },
   };
 }
 
