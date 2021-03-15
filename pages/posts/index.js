@@ -15,7 +15,6 @@ export const Index = ({ allPosts, preview }) => {
     <>
       <Header />
       {preview && <PreviewMode />}
-      
         {allPosts.map((post) => {
           return (
             <BlogPost
