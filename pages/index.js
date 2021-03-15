@@ -2,7 +2,7 @@ import { Header } from "../components/header";
 import { PreviewMode } from "../components/previewMode"
 import { BlogPost } from "../components/blogPost";
 import { Footer } from "../components/footer";
-import { getAllBlogPosts } from "../lib/api";
+import { getFiveBlogPosts } from "../lib/api";
 // import styles from "../styles/Home.module.css";
 
 const Index = ({ allPosts, preview }) => {
@@ -32,7 +32,7 @@ const Index = ({ allPosts, preview }) => {
 };
 
 export async function getStaticProps({ preview = false, previewData }) {
-  const allPosts = await getAllBlogPosts(previewData);
+  const allPosts = await getFiveBlogPosts(previewData);
   return {
     props: { 
       preview,
