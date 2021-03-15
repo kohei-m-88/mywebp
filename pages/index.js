@@ -1,5 +1,5 @@
-import { Header } from "../../components/header";
-import { PreviewMode } from "../../components/previewMode"
+import { Header } from "../components/header";
+import { PreviewMode } from "../components/previewMode"
 import { BlogPost } from "../components/blogPost";
 import { Footer } from "../components/footer";
 import { getAllBlogPosts } from "../lib/api";
@@ -10,7 +10,7 @@ const Index = ({ allPosts, preview }) => {
     <>
       <Header />
       {preview && <PreviewMode />}
-      
+
       <p>Latest</p>
 
       {allPosts.map((post) => {
