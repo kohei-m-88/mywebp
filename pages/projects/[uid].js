@@ -41,9 +41,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false, previewData }) {
-  const projectPost = await getProjectPost(params.uid);
+  const projectPost = await getProjectPost(params.uid, previewData);
   return {
-    props: { projectPost, previewData },
+    props: { projectPost, previewData }
   };
 }
 
