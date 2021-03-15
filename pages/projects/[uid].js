@@ -1,13 +1,22 @@
+import { useRouter } from "next/router"
+import { Loading } from '../../components/loading';
 import { Header } from "../../components/header";
+import { PreviewMode } from "../../components/previewMode"
 import { ProjectPost } from "../../components/projectPost";
 import { Footer } from "../../components/footer";
 import { getAllProjectPaths } from "../../lib/api"
 import { getProjectPost } from "../../lib/api"
 
-export const Project = ({ projectPost }) => {
+export const Project = ({ projectPost, preview }) => {
+  const router = useRouter()
+  if (router.isFallback) {
+    return <Loading />
+  }
+
   return (
     <>
       <Header />
+      {preview && <PreviewMode />}
       <ProjectPost
         p_title={projectPost.title}
         p_date={projectPost.date}
@@ -27,14 +36,14 @@ export async function getStaticPaths() {
   }));
   return {
     paths: pPaths,
-    fallback: false,
+    fallback: true,
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, preview = false, previewData }) {
   const projectPost = await getProjectPost(params.uid);
   return {
-    props: { projectPost },
+    props: { projectPost, previewData },
   };
 }
 
