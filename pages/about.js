@@ -13,10 +13,7 @@ export const About = () => {
     <div>
       Kohei Matsuda.
       React, Next.js, Ruby on Rails, html, css
-      {/* aws EC2 */}
-      google cloud platform
-      firebase hosting
-      {/* (docker) */}
+      
     </div>
     </>
   )

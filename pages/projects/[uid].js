@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
 import { Loading } from "../../components/loading";
-import { Header } from "../../components/header";
-import { PreviewMode } from "../../components/previewMode";
 import { ProjectPost } from "../../components/projectPost";
 import { Footer } from "../../components/footer";
 import { getAllProjectPaths } from "../../lib/api";
@@ -15,8 +13,6 @@ export const Project = ({ projectPost, preview }) => {
 
   return (
     <>
-      <Header />
-      {preview && <PreviewMode />}
       <ProjectPost
         p_title={projectPost.title}
         p_date={projectPost.date}

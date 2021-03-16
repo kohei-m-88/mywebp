@@ -1,13 +1,9 @@
-import { Header } from "../../components/header";
-import { PreviewMode } from "../../components/previewMode";
 import { ProjectPost } from "../../components/projectPost";
 import { getAllProjectPosts } from "../../lib/api";
 
 export const Index = ({ allPosts, preview }) => {
   return (
     <>
-      <Header />
-      {preview && <PreviewMode />}
       {allPosts.map((post) => {
         return (
           <ProjectPost

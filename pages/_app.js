@@ -1,12 +1,15 @@
-import '../css/globals.css'
+import '../styles/global.css'
 import { ThemeProvider } from 'next-themes'
+import { PreviewMode } from '../components/previewMode'
+import { LayoutWrapper } from '../components/layoutwrapper'
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps, preview }) {
   return (
-  <ThemeProvider>
-    <Component {...pageProps} />
-  </ThemeProvider>
+    <ThemeProvider attribute="class">
+      {preview && <PreviewMode />}
+      <LayoutWrapper>
+        <Component {...pageProps} />
+      </LayoutWrapper>
+    </ThemeProvider>
   )
 }
-
-export default MyApp

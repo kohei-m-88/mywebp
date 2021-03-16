@@ -1,7 +1,6 @@
-import { Header } from "../components/header";
-import { PreviewMode } from "../components/previewMode";
+// import { PreviewMode } from "../components/previewMode";
 import { BlogPost } from "../components/blogPost";
-import { Footer } from "../components/footer";
+import { Footer } from "../components/myFooter";
 import { getFiveBlogPosts } from "../lib/api";
 // import styles from "../styles/Home.module.css";
 
@@ -9,8 +8,7 @@ const Index = ({ allPosts, preview }) => {
   return (
     <>
       <div>
-        <Header />
-        {preview && <PreviewMode />}
+        
 
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <div className="pt-6 pb-8 space-y-2 md:space-y-5">
@@ -38,7 +36,7 @@ const Index = ({ allPosts, preview }) => {
               );
             })}
           </ul>
-          {allPosts.length > MAX_DISPLAY && (
+          {allPosts.length > 5 && (
             <div className="flex justify-end text-base font-medium leading-6">
               <Link
                 href="/posts"
@@ -49,7 +47,6 @@ const Index = ({ allPosts, preview }) => {
               </Link>
             </div>
           )}
-          <Footer />
         </div>
       </div>
     </>

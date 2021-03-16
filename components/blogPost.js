@@ -1,6 +1,6 @@
 import { RichText } from "prismic-reactjs";
-import Link from "next/link";
-import { Tag } from "./tag";
+import { MyLink } from "./myLink";
+// import { Tag } from "./tag";
 
 export const BlogPost = (props) => {
   return (
@@ -11,12 +11,12 @@ export const BlogPost = (props) => {
             <dl>
               <dt className="sr-only">Published on</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                <time dateTime={props.p_date}>
+                <div>
                   {
-                    new Date(props.p_date)
+                    props.p_date
                     // .toLocaleDateString(siteMetadata.locale, postDateTemplate)
                   }
-                </time>
+                </div>
               </dd>
             </dl>
 
@@ -24,16 +24,17 @@ export const BlogPost = (props) => {
               <div className="space-y-6">
                 <div>
                   <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                    <Link
+                    <MyLink
                       href={`/posts/${props.p_uid}`}
                       className="text-gray-900 dark:text-gray-100"
                     >
                       {RichText.asText(props.p_title)}
-                    </Link>
+                    </MyLink>
                   </h2>
                   <div className="flex flex-wrap">
-                    {props.p_tags.map((p_tag) => (
-                      <Tag key={p_tag} p_tag={p_tag} />
+                    {props.p_tags && props.p_tags.map((p_tag) => (
+                      <a href={p_tag} key={p_tag} className="mr-3 text-sm font-medium text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">{p_tag}</a>
+                      // <Tag key={p_tag} p_tag={p_tag} />
                     ))}
                   </div>
                 </div>
@@ -42,13 +43,14 @@ export const BlogPost = (props) => {
                 </div>
               </div>
               <div className="text-base font-medium leading-6">
-                <Link
+                <MyLink
                   href={`/posts/${props.p_uid}`}
                   className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
                   aria-label={`Read "${RichText.asText(props.p_title)}"`}
+                  key={props.p_uid}
                 >
                   Read more &rarr;
-                </Link>
+                </MyLink>
               </div>
             </div>
           </div>

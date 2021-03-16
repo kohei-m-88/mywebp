@@ -1,9 +1,6 @@
 import { useRouter } from "next/router"
 import { Loading } from '../../components/loading';
-import { Header } from "../../components/header";
-import { PreviewMode } from "../../components/previewMode"
 import { BlogPost } from "../../components/blogPost";
-import { Footer } from "../../components/footer";
 import { getAllBlogPaths } from "../../lib/api";
 import { getBlogPost } from "../../lib/api";
 
@@ -15,15 +12,12 @@ export const Post = ({ blogPost, preview }) => {
 
   return (
     <>
-      <Header />
-      {preview && <PreviewMode />}
       <BlogPost
         p_title={blogPost.title}
         p_date={blogPost.date}
         p_coverImage={blogPost.image.url}
         p_richbody={blogPost.richbody}
       />
-      <Footer />
     </>
   );
 };
