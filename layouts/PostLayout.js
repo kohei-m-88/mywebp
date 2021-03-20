@@ -2,11 +2,7 @@ import { MyLink } from '../components/myLink'
 import { PageTitle } from '../components/PageTitle'
 import { SectionContainer } from '../components/SectionContainer'
 import { RichText } from 'prismic-reactjs'
-// res.locals.DOM = PrismicDOM;
-// import { htmlSerializer } from '../components/htmlSerializer'
-
 // import { Tag } from '../components/tag'
-// import siteMetdata from '../data/siteMetadata'
 
 // sanityでコメント欄を作る予定のため保留
 // const twitterUrl = (fileName) => `${siteMetdata.siteRepo}/blob/master/data/blog/${fileName}`

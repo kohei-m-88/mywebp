@@ -33,7 +33,7 @@ export const BlogPost = (props) => {
                   </h2>
                   <div className="flex flex-wrap">
                     {props.p_tags && props.p_tags.map((p_tag) => (
-                      <a href={p_tag} key={p_tag} className="mr-3 text-sm font-medium text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">{p_tag}</a>
+                      <div key={p_tag} className="mr-3 text-sm font-medium text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">{p_tag}</div>
                       // <Tag key={p_tag} p_tag={p_tag} />
                     ))}
                   </div>

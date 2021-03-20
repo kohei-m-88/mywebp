@@ -1,6 +1,5 @@
 import { BlogPost } from '../../components/blogPost'
 import { getAllBlogPosts } from '../../lib/api'
-// import { ListLayout } from '../../layouts/ListLayout'
 
 export const Index = ({ allPosts, preview }) => {
   return (
@@ -30,8 +29,6 @@ export const Index = ({ allPosts, preview }) => {
           })}
         </ul>
       </div>
-      {/* のちのち実装したいけれど、今は諦める */}
-      {/* <ListLayout p_posts={allPosts} p_heading="All Posts" /> */}
     </>
   )
 }
