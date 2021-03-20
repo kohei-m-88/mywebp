@@ -1,22 +1,25 @@
-import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
-import { BlogSeo } from '@/components/SEO'
-import Tag from '@/components/Tag'
-import siteMetdata from '@/data/siteMetadata'
+import { MyLink } from '../components/myLink'
+import { PageTitle } from '../components/PageTitle'
+import { SectionContainer } from '../components/SectionContainer'
+import { RichText } from 'prismic-reactjs'
+// res.locals.DOM = PrismicDOM;
+// import { htmlSerializer } from '../components/htmlSerializer'
 
-const editUrl = (fileName) => `${siteMetdata.siteRepo}/blob/master/data/blog/${fileName}`
-const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetdata.siteUrl}/blog/${slug}`)}`
+// import { Tag } from '../components/tag'
+// import siteMetdata from '../data/siteMetadata'
 
-const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+// sanityでコメント欄を作る予定のため保留
+// const twitterUrl = (fileName) => `${siteMetdata.siteRepo}/blob/master/data/blog/${fileName}`
+// const discussUrl = (slug) =>
+//   `https://mobile.twitter.com/search?q=${encodeURIComponent(
+//     `${siteMetdata.siteUrl}/posts/${slug}`
+//   )}`
 
-export default function PostLayout({ children, frontMatter, next, prev }) {
-  const { slug, fileName, date, title, tags } = frontMatter
+export function PostLayout(props) {
 
   return (
     <SectionContainer>
-      <BlogSeo url={`${siteMetdata.siteUrl}/blog/${frontMatter.slug}`} {...frontMatter} />
+      {/* <BlogSeo url={`${siteMetdata.siteUrl}/blog/${frontMatter.slug}`} {...frontMatter} /> */}
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">
@@ -25,14 +28,12 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetdata.locale, postDateTemplate)}
-                    </time>
+                    {props.p_date && <div>{props.p_date}</div>}
                   </dd>
                 </div>
               </dl>
               <div>
-                <PageTitle>{title}</PageTitle>
+                <PageTitle>{props.p_title}</PageTitle>
               </div>
             </div>
           </header>
@@ -40,8 +41,8 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
             className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6"
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
-            <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200 xl:dark:border-gray-700">
-              <dt className="sr-only">Authors</dt>
+            {/* <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200 xl:dark:border-gray-700">
+              <dt className="sr-only"></dt>
               <dd>
                 <ul className="flex justify-center space-x-8 xl:block sm:space-x-12 xl:space-x-0 xl:space-y-8">
                   <li className="flex items-center space-x-2">
@@ -51,43 +52,36 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
                       <dd className="text-gray-900 dark:text-gray-100">{siteMetdata.author}</dd>
                       <dt className="sr-only">Twitter</dt>
                       <dd>
-                        <Link
+                        <MyLink
                           href={siteMetdata.twitter}
                           className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
                         >
                           {siteMetdata.twitter.replace('https://twitter.com/', '@')}
-                        </Link>
+                        </MyLink>
                       </dd>
                     </dl>
                   </li>
                 </ul>
               </dd>
-            </dl>
+            </dl> */}
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 xl:col-span-3 xl:row-span-2">
-              <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">{children}</div>
-              <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(slug)} rel="nofollow">
-                  {'Discuss on Twitter'}
-                </Link>
-                {` • `}
-                <Link href={editUrl(fileName)}>{'View on GitHub'}</Link>
+              <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">
+                {RichText.render(props.p_richbody)}
               </div>
             </div>
             <footer>
               <div className="text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
-                {tags && (
+                {/* {props.p_tags && (
                   <div className="py-4 xl:py-8">
-                    <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                      Tags
-                    </h2>
+                    <h2 className="text-xs tracking-wide text-gray-500 dark:text-gray-400">Tags</h2>
                     <div className="flex flex-wrap">
-                      {tags.map((tag) => (
-                        <Tag key={tag} text={tag} />
+                      {props.p_tags.map((tag) => (
+                        <Tag key={tag} p_tag={tag} />
                       ))}
                     </div>
                   </div>
-                )}
-                {(next || prev) && (
+                )} */}
+                {/* {(next || prev) && (
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && (
                       <div>
@@ -110,15 +104,15 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
                       </div>
                     )}
                   </div>
-                )}
+                )} */}
               </div>
               <div className="pt-4 xl:pt-8">
-                <Link
-                  href="/blog"
+                <MyLink
+                  href="/posts"
                   className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   &larr; Back to the blog
-                </Link>
+                </MyLink>
               </div>
             </footer>
           </div>

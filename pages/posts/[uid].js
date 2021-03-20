@@ -1,8 +1,11 @@
 import { useRouter } from "next/router"
 import { Loading } from '../../components/loading';
-import { BlogPost } from "../../components/blogPost";
+// import { BlogPost } from "../../components/blogPost";
 import { getAllBlogPaths } from "../../lib/api";
 import { getBlogPost } from "../../lib/api";
+// import { PageTitle } from "../../components/PageTitle";
+import { PostLayout } from "../../layouts/PostLayout";
+
 
 export const Post = ({ blogPost, preview }) => {
   const router = useRouter()
@@ -12,11 +15,11 @@ export const Post = ({ blogPost, preview }) => {
 
   return (
     <>
-      <BlogPost
-        p_title={blogPost.title}
-        p_date={blogPost.date}
-        p_coverImage={blogPost.image.url}
-        p_richbody={blogPost.richbody}
+    <PostLayout
+      p_date={blogPost.date}
+      p_title={blogPost.title}
+      p_richbody={blogPost.richbody}
+      p_tags={blogPost._meta.tags}
       />
     </>
   );

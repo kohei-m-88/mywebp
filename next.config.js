@@ -3,9 +3,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({
-  experimental: {
-    modern: true,
-  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
@@ -13,4 +10,14 @@ module.exports = withBundleAnalyzer({
     })
     return config
   },
+  images: {
+    domains: ['images.prismic.io'],
+  },
+
+  prismic: {
+    // you can provide your link resolver function directly
+    linkResolver: function(doc) {
+      return '/'
+    }
+  }
 })

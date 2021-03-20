@@ -28,7 +28,7 @@ export const BlogPost = (props) => {
                       href={`/posts/${props.p_uid}`}
                       className="text-gray-900 dark:text-gray-100"
                     >
-                      {RichText.asText(props.p_title)}
+                      {props.p_title}
                     </MyLink>
                   </h2>
                   <div className="flex flex-wrap">
@@ -39,14 +39,14 @@ export const BlogPost = (props) => {
                   </div>
                 </div>
                 <div className="prose text-gray-500 max-w-none dark:text-gray-400">
-                  {RichText.asText(props.p_richbody)}
+                  {props.p_summary}
                 </div>
               </div>
               <div className="text-base font-medium leading-6">
                 <MyLink
                   href={`/posts/${props.p_uid}`}
                   className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-                  aria-label={`Read "${RichText.asText(props.p_title)}"`}
+                  aria-label={`Read "${props.p_title}"`}
                   key={props.p_uid}
                 >
                   Read more &rarr;

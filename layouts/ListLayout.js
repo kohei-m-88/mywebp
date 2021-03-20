@@ -1,24 +1,15 @@
 import { MyLink } from '../components/myLink'
-import { Tag } from '../components/Tag'
+import { Tag } from '../components/tag'
 import { useState } from 'react'
 import { RichText } from 'prismic-reactjs'
 
 export function ListLayout(props) {
   const [searchValue, setSearchValue] = useState('')
-  const result = props.p_posts.map((posts) => {
-    posts.filter((post) => {
-      let searchContent = RichText.asText(frontMatter.node.title) +
+  const filteredBlogPosts = props.p_posts.filter((frontMatter) => {
+    const [searchValue, setSearchValue] = useState('')
+      const searchContent = RichText.asText(frontMatter.node.title) +
       RichText.asText(frontMatter.node.richbody) +
       frontMatter.node._meta.tags.join(' ')
-      
-    })
-  })
-  const result = () => {props.p_posts.filter((frontMatter) => {
-    const searchContent =
-      RichText.asText(frontMatter.node.title) +
-      RichText.asText(frontMatter.node.richbody) +
-      frontMatter.node._meta.tags.join(' ')
-    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
   return (

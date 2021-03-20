@@ -1,0 +1,15 @@
+{
+  "title": "Kohei Matsuda",
+  "author": "Kohei Matsuda",
+  "headerTitle": "Kohei Matsuda",
+  "description": "blog & portfolio",
+  "language": "ja-jp",
+  "siteUrl": "https://matsudakohei.com",
+  "siteRepo": "https://github.com/kohei-m-88/mywebpage",
+  "image": "/static/images/avatar.png",
+  "socialBanner": "/static/images/twitter-card.png",
+  "email": "matsudakohei88@gmail.com",
+  "github": "https://github.com/kohei-m-88",
+  "twitter": "https://twitter.com/koheim_88",
+  "locale": "ja-jp"
+}

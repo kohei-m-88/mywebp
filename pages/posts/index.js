@@ -21,7 +21,7 @@ export const Index = ({ allPosts, preview }) => {
                 p_title={post.node.title}
                 p_date={post.node.date}
                 p_coverImage={post.node.image.url}
-                p_richbody={post.node.richbody}
+                p_summary={post.node.summary}
                 p_uid={post.node._meta.uid}
                 p_tags={post.node._meta.tags}
                 key={post.node._meta.uid}
