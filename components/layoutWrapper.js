@@ -1,7 +1,7 @@
 import { headerNavLinks } from '../data/headerNavLinks'
 import { MyLink } from './myLink'
-import { SectionContainer } from './sectionContainer'
-import { ThemeSwitch } from './jflsajfsa'
+import { SectionContainer } from './fdasfafdsa'
+import { ThemeSwitch } from './themeSwitch'
 import { MobileNav } from './mobileNav'
 import { MyFooter } from './myFooter'
 
