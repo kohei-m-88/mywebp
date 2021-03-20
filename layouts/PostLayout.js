@@ -2,6 +2,9 @@ import { MyLink } from '../components/myLink'
 import { PageTitle } from '../components/PageTitle'
 import { SectionContainer } from '../components/SectionContainer'
 import { RichText } from 'prismic-reactjs'
+import { Date } from 'prismic-reactjs';
+import { format } from 'date-fns';
+// import Image from 'next/image' 
 // import { Tag } from '../components/tag'
 
 // sanityでコメント欄を作る予定のため保留
@@ -12,7 +15,8 @@ import { RichText } from 'prismic-reactjs'
 //   )}`
 
 export function PostLayout(props) {
-
+  const date = Date(props.p_date);
+  const formattedDate = format(date,'MMMM dd, yyyy');
   return (
     <SectionContainer>
       {/* <BlogSeo url={`${siteMetdata.siteUrl}/blog/${frontMatter.slug}`} {...frontMatter} /> */}
@@ -24,7 +28,7 @@ export function PostLayout(props) {
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    {props.p_date && <div>{props.p_date}</div>}
+                    {props.p_date && <div>{formattedDate}</div>}
                   </dd>
                 </div>
               </dl>

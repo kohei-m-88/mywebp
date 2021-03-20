@@ -1,8 +1,11 @@
-import { RichText } from "prismic-reactjs";
-import { MyLink } from "./myLink";
+import { MyLink } from './myLink'
+import { Date } from 'prismic-reactjs'
+import { format } from 'date-fns'
 // import { Tag } from "./tag";
 
 export const BlogPost = (props) => {
+  const date = Date(props.p_date)
+  const formattedDate = format(date, 'MMMM dd, yyyy')
   return (
     <>
       <li className="py-12">
@@ -11,12 +14,7 @@ export const BlogPost = (props) => {
             <dl>
               <dt className="sr-only">Published on</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                <div>
-                  {
-                    props.p_date
-                    // .toLocaleDateString(siteMetadata.locale, postDateTemplate)
-                  }
-                </div>
+                <div>{formattedDate}</div>
               </dd>
             </dl>
 
@@ -31,11 +29,18 @@ export const BlogPost = (props) => {
                       {props.p_title}
                     </MyLink>
                   </h2>
+
                   <div className="flex flex-wrap">
-                    {props.p_tags && props.p_tags.map((p_tag) => (
-                      <div key={p_tag} className="mr-3 text-sm font-medium text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">{p_tag}</div>
-                      // <Tag key={p_tag} p_tag={p_tag} />
-                    ))}
+                    {props.p_tags &&
+                      props.p_tags.map((p_tag) => (
+                        <div
+                          key={p_tag}
+                          className="mr-3 text-sm font-medium text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+                        >
+                          {p_tag}
+                        </div>
+                        // tagページを作ったら、div→a(というかtagコンポーネント)にする
+                      ))}
                   </div>
                 </div>
                 <div className="prose text-gray-500 max-w-none dark:text-gray-400">
@@ -57,5 +62,5 @@ export const BlogPost = (props) => {
         </article>
       </li>
     </>
-  );
-};
+  )
+}
