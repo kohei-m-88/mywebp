@@ -3,7 +3,7 @@ import { PageTitle } from '../components/PageTitle'
 import { SectionContainer } from '../components/SectionContainer'
 import { RichText } from 'prismic-reactjs'
 import { Date } from 'prismic-reactjs';
-import { format } from 'date-fns';
+import format from 'date-fns';
 // import Image from 'next/image' 
 // import { Tag } from '../components/tag'
 
