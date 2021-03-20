@@ -1,5 +1,3 @@
-import { RichText } from "prismic-reactjs";
-
 export const ProjectPost = ( props ) => {
   return(
     <>
