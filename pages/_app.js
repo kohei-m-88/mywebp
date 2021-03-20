@@ -1,7 +1,7 @@
 import 'tailwindcss/tailwind.css'
 import { ThemeProvider } from 'next-themes'
 import { PreviewMode } from '../components/previewMode'
-import { LayoutWrapper } from '../components/layoutwrapper'
+import { LayoutWrapper } from '../components/layoutWrapper'
 
 export default function MyApp({ Component, pageProps, preview }) {
   return (

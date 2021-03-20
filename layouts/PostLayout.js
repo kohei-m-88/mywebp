@@ -3,7 +3,7 @@ import { PageTitle } from '../components/PageTitle'
 import { SectionContainer } from '../components/SectionContainer'
 import { RichText } from 'prismic-reactjs'
 import { Date } from 'prismic-reactjs';
-import format from 'date-fns';
+import { format } from 'date-fns';
 // import Image from 'next/image' 
 // import { Tag } from '../components/tag'
 
@@ -15,8 +15,8 @@ import format from 'date-fns';
 //   )}`
 
 export function PostLayout(props) {
-  const date = Date(props.p_date);
-  const formattedDate = format(date,'MMMM dd, yyyy');
+  const pdate = Date(props.p_date);
+  const formattedDate = format(pdate,'MMMM dd, yyyy');
   return (
     <SectionContainer>
       {/* <BlogSeo url={`${siteMetdata.siteUrl}/blog/${frontMatter.slug}`} {...frontMatter} /> */}
