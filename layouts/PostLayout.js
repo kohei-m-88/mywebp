@@ -1,6 +1,6 @@
 import { MyLink } from '../components/myLink'
-import { PageTitle } from '../components/PageTitle'
-import { SectionContainer } from '../components/fdasfafdsa'
+import { PageTitle } from '../components/pageTitle'
+import { SectionContainer } from '../components/sectionContainer'
 import { RichText } from 'prismic-reactjs'
 import { Date } from 'prismic-reactjs';
 import { format } from 'date-fns';

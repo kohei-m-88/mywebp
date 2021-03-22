@@ -1,6 +1,6 @@
 import { headerNavLinks } from '../data/headerNavLinks'
 import { MyLink } from './myLink'
-import { SectionContainer } from './fdasfafdsa'
+import { SectionContainer } from './sectionContainer'
 import { ThemeSwitch } from './themeSwitch'
 import { MobileNav } from './mobileNav'
 import { MyFooter } from './myFooter'
@@ -15,7 +15,7 @@ export const LayoutWrapper = ({ children }) => {
               <MyLink href="/" aria-label="Matsuda Kohei">
                 <div className="flex items-center justify-between">
                   <div className="h-6 text-2xl font-semibold sm:block text-gray-900 dark:text-gray-100">
-                    Kohei Matsuda
+                    Matsuda Kohei
                   </div>
                 </div>
               </MyLink>
