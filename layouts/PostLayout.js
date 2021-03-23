@@ -33,7 +33,7 @@ export function PostLayout(props) {
                 </div>
               </dl>
               <div>
-                <PageTitle>{props.p_title}</PageTitle>
+                <PageTitle>{children = props.p_title}</PageTitle>
               </div>
             </div>
           </header>
