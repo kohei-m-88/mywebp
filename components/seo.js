@@ -15,7 +15,7 @@ export const SEO = {
         url: `${siteMetadata.siteUrl}${siteMetadata.socialBanner}`,
         alt: siteMetadata.title,
         width: 1200,
-        height: 600,
+        height: 630,
       },
     ],
   },
@@ -32,55 +32,57 @@ export const SEO = {
   ],
 }
 
-export const PageSeo = ({ title, description, url }) => {
+export const PageSeo = ( { props } ) => {
   return (
     <NextSeo
-      title={`${title} – ${siteMetadata.title}`}
-      description={description}
-      canonical={url}
+      title={`${props.title} – ${siteMetadata.title}`}
+      description={props.description}
+      canonical={props.url}
       openGraph={{
-        url,
-        title,
-        description,
+        url: props.url,
+        titile: props.title,
+        description: props.description,
       }}
     />
   )
 }
 
-export const BlogSeo = ({ title, summary, date, lastmod, url, tags, images = [] }) => {
-  const publishedAt = new Date(date).toISOString()
-  const modifiedAt = new Date(lastmod || date).toISOString()
+export const BlogSeo = ({ props }) => {
+  const publishedAt = new Date(props.firstPub)
+  // .toISOString()
+  const modifiedAt = new Date(props.lastPub || props.firstPub)
+  // .toISOString()
   let imagesArr =
-    images.length === 0
+    props.images.length === 0
       ? [siteMetadata.socialBanner]
-      : typeof images === 'string'
-      ? [images]
-      : images
+      : typeof props.images === 'string'
+      ? [props.images]
+      : props.images
 
   const featuredImages = imagesArr.map((img) => {
     return {
       url: `${siteMetadata.siteUrl}${img}`,
-      alt: title,
+      alt: props.title,
     }
   })
 
   return (
     <>
       <NextSeo
-        title={`${title} – ${siteMetadata.title}`}
-        description={summary}
-        canonical={url}
+        title={`${props.title} – ${siteMetadata.title}`}
+        description={props.summary}
+        canonical={props.url}
         openGraph={{
           type: 'article',
           article: {
             publishedTime: publishedAt,
             modifiedTime: modifiedAt,
-            authors: [`${siteMetadata.siteUrl}/about`],
-            tags,
+            authors: [`${siteMetadata.author}`],
+            tags: props.tags,
           },
-          url,
-          title,
-          description: summary,
+          url: props.url,
+          title: props.title,
+          description: props.summary,
           images: featuredImages,
         }}
         additionalMetaTags={[
@@ -92,13 +94,13 @@ export const BlogSeo = ({ title, summary, date, lastmod, url, tags, images = [] 
       />
       <ArticleJsonLd
         authorName={siteMetadata.author}
-        dateModified={publishedAt}
-        datePublished={modifiedAt}
-        description={summary}
+        dateModified={modifiedAt}
+        datePublished={publishedAt}
+        description={props.summary}
         images={featuredImages}
         publisherName={siteMetadata.author}
-        title={title}
-        url={url}
+        title={props.title}
+        url={props.url}
       />
     </>
   )
