@@ -1,10 +1,10 @@
 import { MyLink } from '../components/myLink'
-import { PageTitle } from '../components/pageTitle'
+// import { PageTitle } from '../components/pageTitle'
 import { SectionContainer } from '../components/sectionContainer'
 import { RichText } from 'prismic-reactjs'
-import { Date } from 'prismic-reactjs';
-import { format } from 'date-fns';
-// import Image from 'next/image' 
+import { Date } from 'prismic-reactjs'
+import { format } from 'date-fns'
+// import Image from 'next/image'
 // import { Tag } from '../components/tag'
 
 // sanityでコメント欄を作る予定のため保留
@@ -15,8 +15,8 @@ import { format } from 'date-fns';
 //   )}`
 
 export function PostLayout(props) {
-  const pdate = Date(props.p_date);
-  const formattedDate = format(pdate,'MMMM dd, yyyy');
+  const pdate = Date(props.p_date)
+  const formattedDate = format(pdate, 'MMMM dd, yyyy')
   return (
     <SectionContainer>
       {/* <BlogSeo url={`${siteMetdata.siteUrl}/blog/${frontMatter.slug}`} {...frontMatter} /> */}
@@ -33,7 +33,9 @@ export function PostLayout(props) {
                 </div>
               </dl>
               <div>
-                <PageTitle title={props.p_title} />
+                <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+                  {props.p_title}
+                </h1>
               </div>
             </div>
           </header>
