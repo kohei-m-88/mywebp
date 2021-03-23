@@ -32,16 +32,19 @@ export const SEO = {
   ],
 }
 
-export const PageSeo = ( { props } ) => {
+export const PageSeo = (  props  ) => {
   return (
     <NextSeo
-      title={`${props.title} – ${siteMetadata.title}`}
-      description={props.description}
-      canonical={props.url}
+      title={ props.p_title
+        ? `${props.p_title} – ${siteMetadata.title}`
+        : `${siteMetadata.title}`
+      }
+      description={props.p_description}
+      canonical={props.p_url}
       openGraph={{
-        url: props.url,
-        titile: props.title,
-        description: props.description,
+        url: props.p_url,
+        titile: props.p_title,
+        description: props.p_description,
       }}
     />
   )

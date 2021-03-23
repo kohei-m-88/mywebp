@@ -7,7 +7,6 @@ const Index = ({ allPosts, preview }) => {
   return (
     <>
       <PageSeo
-        title={siteMetadata.title}
         description={siteMetadata.description}
         url={siteMetadata.siteUrl}
       />
