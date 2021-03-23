@@ -3,9 +3,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({
-  experimental: {
-    modern: true,
-  },
+  // experimental: {
+  //   modern: true,
+  // },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
