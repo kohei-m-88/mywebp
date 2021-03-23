@@ -14,10 +14,15 @@ export const Post = ({ blogPost, preview }) => {
   return (
     <>
     <PostLayout
-      p_date={blogPost.date}
       p_title={blogPost.title}
-      p_richbody={blogPost.richbody}
+      p_date={blogPost.date}
       p_tags={blogPost._meta.tags}
+      p_slug={blogPost._meta.uid}
+      p_fitstPub={blogPost._meta.firstPublicationDate}
+      p_lastPub={blogPost._meta.lastPublicationDate}
+      p_summary={blogPost.summary}
+      p_richbody={blogPost.richbody}
+      // p_images={blogPost.リッチボディからとりたい}
       />
     </>
   );

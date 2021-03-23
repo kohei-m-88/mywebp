@@ -1,9 +1,11 @@
 import { MyLink } from '../components/myLink'
 // import { PageTitle } from '../components/pageTitle'
 import { SectionContainer } from '../components/sectionContainer'
+import { BlogSeo } from '../components/seo'
 import { RichText } from 'prismic-reactjs'
 import { Date } from 'prismic-reactjs'
 import { format } from 'date-fns'
+import siteMetadata from '../data/siteMetadata'
 // import Image from 'next/image'
 // import { Tag } from '../components/tag'
 
@@ -19,7 +21,16 @@ export function PostLayout(props) {
   const formattedDate = format(pdate, 'MMMM dd, yyyy')
   return (
     <SectionContainer>
-      {/* <BlogSeo url={`${siteMetdata.siteUrl}/blog/${frontMatter.slug}`} {...frontMatter} /> */}
+      <BlogSeo 
+      url={`${siteMetadata.siteUrl}/posts/${props.p_slug}`} 
+      title={props.p_title}
+      firstPub={props.p_firstPub}
+      lastPub={props.p_lastPub}
+      summary={props.p_summary}
+      slug={props.p_slug}
+      // images={props.p_images}
+
+       />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">

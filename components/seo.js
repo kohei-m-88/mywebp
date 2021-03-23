@@ -32,13 +32,10 @@ export const SEO = {
   ],
 }
 
-export const PageSeo = (  props  ) => {
+export const PageSeo = (props) => {
   return (
     <NextSeo
-      title={ props.p_title
-        ? `${props.p_title} – ${siteMetadata.title}`
-        : `${siteMetadata.title}`
-      }
+      title={props.p_title ? `${props.p_title} – ${siteMetadata.title}` : `${siteMetadata.title}`}
       description={props.p_description}
       canonical={props.p_url}
       openGraph={{
@@ -50,24 +47,25 @@ export const PageSeo = (  props  ) => {
   )
 }
 
-export const BlogSeo = ({ props }) => {
+export const BlogSeo = (props) => {
   const publishedAt = new Date(props.firstPub)
   // .toISOString()
   const modifiedAt = new Date(props.lastPub || props.firstPub)
   // .toISOString()
-  let imagesArr =
-    props.images.length === 0
-      ? [siteMetadata.socialBanner]
-      : typeof props.images === 'string'
-      ? [props.images]
-      : props.images
+  // let imagesArr =
+  //   props.images?.length === 0
+  //     ? [siteMetadata.socialBanner]
+  //     : typeof props.images === 'string'
+  //     ? [props.images]
+  //     : props.images
 
-  const featuredImages = imagesArr.map((img) => {
-    return {
-      url: `${siteMetadata.siteUrl}${img}`,
-      alt: props.title,
-    }
-  })
+  const featuredImages = siteMetadata.socialBanner
+  //  imagesArr?.map((img) => {
+  //   return {
+  //     url: `${siteMetadata.siteUrl}${img}`,
+  //     alt: props.title,
+  //   }
+  // })
 
   return (
     <>
@@ -81,17 +79,17 @@ export const BlogSeo = ({ props }) => {
             publishedTime: publishedAt,
             modifiedTime: modifiedAt,
             authors: [`${siteMetadata.author}`],
-            tags: props.tags,
+            // tags: props.tags,
           },
           url: props.url,
           title: props.title,
           description: props.summary,
-          images: featuredImages,
+          // images: featuredImages
         }}
         additionalMetaTags={[
           {
             name: 'twitter:image',
-            content: featuredImages[0].url,
+            // content: featuredImages,
           },
         ]}
       />
@@ -100,7 +98,7 @@ export const BlogSeo = ({ props }) => {
         dateModified={modifiedAt}
         datePublished={publishedAt}
         description={props.summary}
-        images={featuredImages}
+        // images={featuredImages}
         publisherName={siteMetadata.author}
         title={props.title}
         url={props.url}
