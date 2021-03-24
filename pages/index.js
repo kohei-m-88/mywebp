@@ -12,10 +12,10 @@ const Index = ({ allPosts, preview }) => {
       />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            最近のブログ記事
+          <h1 className="text-3xl  leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+            最新のブログ
           </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">内容はwebアプリ開発</p>
+          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">webアプリ開発のアレコレ</p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!allPosts.length && 'No posts found.'}
