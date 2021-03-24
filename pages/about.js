@@ -13,7 +13,7 @@ export const About = () => {
       <div className="divide-y">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            About
+            ｼﾞｺｼｮｳｶｲ
           </h1>
         </div>
         <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
@@ -22,7 +22,7 @@ export const About = () => {
             <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">
               {siteMetadata.author}
             </h3>
-            <div className="text-gray-500 dark:text-gray-400">Webエンジニア</div>
+            <div className="text-gray-500 dark:text-gray-400">Webエンジニア(になりたい)</div>
             <div className="flex pt-6 space-x-3">
               <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} />
               <SocialIcon kind="github" href={siteMetadata.github} />
@@ -31,7 +31,7 @@ export const About = () => {
           </div>
           <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
             <p>
-              松田康平です。 2020年12月からwebアプリ開発を独学で始めました。
+              ﾏﾂﾀﾞｺｳﾍｲです。 2020年12月からwebアプリ開発を独学で始めました。
               巷ではITエンジニア35歳定年説というものがありますが、30代からwebエンジニア目指しています。（えっ）
             </p>
             <p>
