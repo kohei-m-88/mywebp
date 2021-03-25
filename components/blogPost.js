@@ -5,7 +5,7 @@ import { format } from 'date-fns'
 
 export const BlogPost = (props) => {
   const date = Date(props.p_date)
-  const formattedDate = format(date, 'MMMM dd, yyyy')
+  const formattedDate = format(date, 'yyyy-MM-dd')
   return (
     <>
       <li className="py-12">

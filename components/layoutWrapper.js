@@ -14,7 +14,7 @@ export const LayoutWrapper = ({ children }) => {
             <div>
               <MyLink href="/" aria-label="Matsuda Kohei">
                 <div className="flex items-center justify-between">
-                  <div className="h-6 text-2xl font-semibold sm:block text-gray-900 dark:text-gray-100">
+                  <div className="h-6 text-2xl sm:block text-gray-900 dark:text-gray-100">
                     ﾏﾂﾀﾞｺｳﾍｲのｳｪﾌﾞｻｲﾄ
                   </div>
                 </div>

@@ -1,15 +1,15 @@
 {
-  "title": "ﾏﾂﾀﾞのｳｪﾌﾞｻｲﾄ",
-  "author": "ﾏﾂﾀﾞｺｳﾍｲ",
+  "title": "ﾏﾂﾀﾞｺｳﾍｲのｳｪﾌﾞｻｲﾄ",
+  "author": "matskohe ﾏﾂﾀﾞｺｳﾍｲ",
   "headerTitle": "ﾏﾂﾀﾞｺｳﾍｲのウェブサイト",
-  "description": "webエンジニアﾏﾂﾀﾞによるブログ兼ポートフォリオサイト",
-  "language": "ja-jp",
+  "description": "matskohe ﾏﾂﾀﾞｺｳﾍｲのブログ兼ポートフォリオサイト",
+  "language": "ja-JP",
   "siteUrl": "https://matsudakohei.com",
   "siteRepo": "https://github.com/kohei-m-88/mywebpage",
   "image": "/static/images/avatar.png",
   "socialBanner": "/static/images/twittercard.jpeg",
   "email": "matsudakohei88@gmail.com",
   "github": "https://github.com/kohei-m-88",
-  "twitter": "https://twitter.com/koheim_88",
+  "twitter": "https://twitter.com/matskohe",
   "locale": "ja-jp"
 }

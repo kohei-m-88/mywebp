@@ -18,7 +18,7 @@ import siteMetadata from '../data/siteMetadata'
 
 export function PostLayout(props) {
   const pdate = Date(props.p_date)
-  const formattedDate = format(pdate, 'MMMM dd, yyyy')
+  const formattedDate = format(pdate, 'yyyy-MM-dd')
   return (
     <SectionContainer>
       <BlogSeo 
@@ -38,13 +38,13 @@ export function PostLayout(props) {
               <dl className="space-y-10">
                 <div>
                   <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 text-left">
                     {props.p_date && <div>{formattedDate}</div>}
                   </dd>
                 </div>
               </dl>
               <div>
-                <h1 className="text-3xl leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+                <h1 className="text-3xl leading-9 tracking-tight text-gray-900 dark:text-gray-100 text-left">
                   {props.p_title}
                 </h1>
               </div>
