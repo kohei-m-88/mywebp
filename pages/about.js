@@ -31,7 +31,7 @@ export const About = () => {
           </div>
           <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
             <p>
-              ﾏﾂﾀﾞｺｳﾍｲです。 2020年12月からwebアプリ開発を独学で始めました。
+              2020年12月からwebアプリ開発を独学で始めました。
               巷ではITエンジニア35歳定年説というものがありますが、30代からwebエンジニア目指しています。（えっ）
             </p>
             <p>
